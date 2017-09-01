@@ -8,7 +8,7 @@ class TestSelenium(unittest.TestCase):
         driver = webdriver.Chrome()
         driver.get('http://wu-web.s3-website-eu-west-1.amazonaws.com/')
         print driver.title
-        assert driver.title == "React App"  
+        assert driver.title == "World United"  
 
     def test_browse_firefox(self):
         display = Display(visible=0, size=(800, 600))
@@ -16,7 +16,7 @@ class TestSelenium(unittest.TestCase):
         driver = webdriver.Firefox()
         driver.get('http://wu-web.s3-website-eu-west-1.amazonaws.com/')
         print driver.title
-        assert driver.title == "React App"
+        assert driver.title == "World United"
 
 if __name__=='__main__':
     unittest.main()
