@@ -3,7 +3,7 @@ from selenium import webdriver
 from pyvirtualdisplay import Display
 
 class TestSelenium(unittest.TestCase):
-    #test case!!!!!!!
+    #test case!!!!!!!!
     def test_browse_google(self):
         driver = webdriver.Chrome()
         driver.get('http://wu-web.s3-website-eu-west-1.amazonaws.com/')
