@@ -12,22 +12,27 @@ class TestSelenium(unittest.TestCase):
     def test_browse_google(self):
         driver = webdriver.Chrome()
         driver.get('https://dev.worldunited.com/signup/register')
+        print driver.title
         assert driver.title == 'World United'
         driver.quit()
 
     def test_browse_firefox(self):
-        '''display = Display(visible=0, size=(800, 600))
+        display = Display(visible=0, size=(800, 600))
         display.start()
-        '''
+        
 
         driver = webdriver.Firefox()
         driver.get('https://dev.worldunited.com/signup/register')
+        print driver.title
         assert driver.title == 'World United'
         driver.quit()
 
     def test_signup_failure(self):
         email = 'test@test.com'
         password = 'testpassword'
+
+        display = Display(visible=0, size=(800, 600))
+        display.start()
 
         driver = webdriver.Firefox()
         driver.get('https://d2qa3wj7w00hfu.cloudfront.net/signup')
