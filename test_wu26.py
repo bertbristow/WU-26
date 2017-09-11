@@ -29,7 +29,7 @@ class TestSelenium(unittest.TestCase):
         email = 'test@test.com'
         password = 'testpassword'
 
-        display = Display(visible=0, size=(800, 600))
+        display = Display(visible=0, size=(1920, 1080))
         display.start()
 
         driver = webdriver.Firefox()
