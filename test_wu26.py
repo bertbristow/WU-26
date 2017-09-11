@@ -14,7 +14,6 @@ class TestSelenium(unittest.TestCase):
         driver.get('https://dev.worldunited.com/signup/register')
         print driver.title
         assert driver.title == 'World United'
-        driver.quit()
 
     def test_browse_firefox(self):
         display = Display(visible=0, size=(800, 600))
@@ -25,7 +24,6 @@ class TestSelenium(unittest.TestCase):
         driver.get('https://dev.worldunited.com/signup/register')
         print driver.title
         assert driver.title == 'World United'
-        driver.quit()
 
     def test_signup_failure(self):
         email = 'test@test.com'
@@ -46,7 +44,6 @@ class TestSelenium(unittest.TestCase):
             element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR , 'div.ui.error.message')))
         finally:
             assert element.text == 'Signup failed, please try again later'
-            driver.quit()
 
 
 if __name__=='__main__':
