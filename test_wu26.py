@@ -30,7 +30,7 @@ class TestSelenium(unittest.TestCase):
         display = Display(visible=0, size=(1920, 1080))
         display.start()
 
-        driver = webdriver.Firefox()
+        driver = webdriver.Chrome()
         driver.get('https://d2qa3wj7w00hfu.cloudfront.net/signup')
         driver.find_element_by_xpath('//input[@name="emailAddress"]').send_keys(email)
         driver.find_element_by_xpath('//input[@name="password"]').send_keys(password)
