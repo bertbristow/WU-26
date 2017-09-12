@@ -14,15 +14,6 @@ class TestSelenium(unittest.TestCase):
         driver.get('https://dev.worldunited.com/signup/register')
         assert driver.title == 'World United'
 
-    def test_browse_firefox(self):
-        display = Display(visible=0, size=(800, 600))
-        display.start()
-        
-
-        driver = webdriver.Firefox()
-        driver.get('https://dev.worldunited.com/signup/register')
-        assert driver.title == 'World United'
-
     def test_signup_failure(self):
         email = 'test@test.com'
         password = 'L2a4qnbL2'
