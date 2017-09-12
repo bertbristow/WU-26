@@ -13,10 +13,27 @@ RUN curl -SLO "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION
   && unzip "chromedriver_linux64.zip" -d /usr/local/bin \
   && rm "chromedriver_linux64.zip"
 RUN apt-get install -y wget
-RUN wget https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/40.0.3/linux-x86_64/en-US/firefox-40.0.3.tar.bz2
-RUN tar -xjvf firefox-40.0.3.tar.bz2
-RUN mv firefox /opt/firefox
-RUN ln -sf /opt/firefox/firefox /usr/bin/firefox
+#=========
+# Firefox
+#=========
+ARG FIREFOX_VERSION=55.0.3
+RUN wget --no-verbose -O /tmp/firefox-55.0.3.tar.bz2 https://download-installer.cdn.mozilla.net/pub/firefox/releases/55.0.3/linux-x86_64/en-US/firefox-55.0.3.tar.bz2 && \
+    tar -C /opt -xjf /tmp/firefox-55.0.3.tar.bz2 && \
+    mv /opt/firefox /opt/firefox-$FIREFOX_VERSION && \
+    ln -fs /opt/firefox-$FIREFOX_VERSION/firefox /usr/bin/firefox
+
+#============
+# GeckoDriver
+#============
+ARG GECKODRIVER_VERSION=0.18.0
+RUN wget --no-verbose -O /tmp/geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER_VERSION/geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz && \
+    rm -rf /opt/geckodriver && \
+    tar -C /opt -zxf /tmp/geckodriver.tar.gz && \
+    rm /tmp/geckodriver.tar.gz && \
+    mv /opt/geckodriver /opt/geckodriver-$GECKODRIVER_VERSION && \
+    chmod 755 /opt/geckodriver-$GECKODRIVER_VERSION && \
+    ln -fs /opt/geckodriver-$GECKODRIVER_VERSION /usr/bin/geckodriver
+
 RUN pip install pyvirtualdisplay
 
 COPY . /src/app
