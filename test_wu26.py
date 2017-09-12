@@ -26,7 +26,7 @@ class TestSelenium(unittest.TestCase):
         driver.find_element_by_xpath('//input[@name="emailAddress"]').send_keys(email)
         driver.find_element_by_xpath('//input[@name="password"]').send_keys(password)
         driver.find_element_by_xpath('//input[@name="confirmPassword"]').send_keys(password)
-        driver.find_element_by_xpath('//input[@type="checkbox"]').click()
+        driver.find_element_by_xpath('//*[@id="root"]/div/div/div/div/form/div/div/div[5]/div/label').click()
         driver.find_element_by_css_selector('button.ui.fluid.primary.button').click()
         
         try:
