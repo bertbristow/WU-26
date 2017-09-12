@@ -12,7 +12,6 @@ class TestSelenium(unittest.TestCase):
     def test_browse_google(self):
         driver = webdriver.Chrome()
         driver.get('https://dev.worldunited.com/signup/register')
-        print driver.title
         assert driver.title == 'World United'
 
     def test_browse_firefox(self):
@@ -22,12 +21,11 @@ class TestSelenium(unittest.TestCase):
 
         driver = webdriver.Firefox()
         driver.get('https://dev.worldunited.com/signup/register')
-        print driver.title
         assert driver.title == 'World United'
 
     def test_signup_failure(self):
         email = 'test@test.com'
-        password = 'testpassword'
+        password = 'L2a4qnbL2'
 
         display = Display(visible=0, size=(1920, 1080))
         display.start()
