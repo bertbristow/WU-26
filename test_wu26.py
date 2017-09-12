@@ -31,7 +31,7 @@ class TestSelenium(unittest.TestCase):
         display.start()
 
         driver = webdriver.Chrome()
-        driver.get('https://d2qa3wj7w00hfu.cloudfront.net/signup')
+        driver.get('https://dev.worldunited.com/signup/register')
         driver.find_element_by_xpath('//input[@name="emailAddress"]').send_keys(email)
         driver.find_element_by_xpath('//input[@name="password"]').send_keys(password)
         driver.find_element_by_xpath('//input[@name="confirmPassword"]').send_keys(password)
