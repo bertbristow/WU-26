@@ -3,7 +3,7 @@ FROM markadams/chromium-xvfb
 RUN apt-get update && apt-get install -y \
     python python-pip curl unzip libgconf-2-4
 
-RUN pip install pytest selenium==2.53.6
+RUN pip install pytest selenium==3.4.3
 
 ENV CHROMEDRIVER_VERSION 2.29
 ENV CHROMEDRIVER_SHA256 bb2cf08f2c213f061d6fbca9658fc44a367c1ba7e40b3ee1e3ae437be0f901c2
